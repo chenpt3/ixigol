@@ -1,0 +1,23 @@
+{
+  "Player VS Player": "שחקן נגד שחקן",
+  "Player VS Bot": "שחקן נגד בוט",
+  "Play": "שחק",
+  "Return": "חזור",
+  "Player 1 Name:": "שם השחקן הראשון:",
+  "Player 2 Name:": "שם השחקן השני:",
+  "Player 1": "שחקן מס׳ 1",
+  "Player 2": "שחקן מס׳ 2",
+  "Choose Bot Difficulty:": "בחר דרגת קושי לבוט:",
+  "Easy": "קל",
+  "Normal": "בינוני",
+  "Hard": "קשה",
+  "Impossible": "בלתי אפשרי",
+  "Tic Tac Toe": "איקס עיגול",
+  "score": "ניקוד:",
+  "playAgain": "לשחק שוב?",
+  "yes": "כן",
+  "no": "לא",
+  "draw": "זה תיקו!",
+  "it{{nextPlayer}}turn": "זה התור של {{nextPlayer}}",
+  "{{winner}}Won!": "{{winner}} ניצח!"
+}

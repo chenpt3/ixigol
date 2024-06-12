@@ -1,0 +1,23 @@
+{
+      "Player VS Player": "Player VS Player",
+      "Player VS Bot": "Player VS Bot",
+      "Play": "Play",
+      "Return": "Return",
+      "Player 1 Name:": "Player 1 Name:",
+      "Player 2 Name:": "Player 2 Name:",
+      "Player 1": "Player 1",
+      "Player 2": "Player 2",
+      "Choose Bot Difficulty:": "Choose Bot Difficulty:",
+      "Easy": "Easy",
+      "Normal": "Normal",
+      "Hard": "Hard",
+      "Impossible": "Impossible",
+      "Tic Tac Toe": "Tic Tac Toe",
+      "score": "Score:",
+      "playAgain": "Play Again?",
+      "yes": "Yes",
+      "no": "No",
+      "draw": "It's a draw!",
+      "it{{nextPlayer}}turn": "It's {{nextPlayer}} turn!",
+      "{{winner}}Won!": "{{winner}} won!"
+    }
