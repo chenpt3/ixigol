@@ -34,6 +34,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "gh-pages": "^6.1.1",
     "globals": "^15.4.0",
     "html-webpack-plugin": "^5.6.0",
     "i18next": "^23.11.5",
@@ -62,7 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chenpt3/ixigol.git"
+    "url": "git+https://github.com/chenpt3/ixigol.git"
   },
   "homepage": "",
   "eslintConfig": {
@@ -82,5 +83,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "home-page": "https://chenpt3.github.io/ixigol/"
 }
