@@ -28,7 +28,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   transition: background-image 0.2s ease-in-out;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 #root {
