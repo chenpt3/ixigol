@@ -137,28 +137,47 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
   }, [activePlayer, gameOver, winner, t]);
 
   return (
-    <div className="h-full">
-      <div className="flex flex-col items-center md:gap-5 gap-8 h-full">
-        <div className="mb-4 flex justify-between align-center gap-10 md:mt-[50px]">
-          <p className="text-[1.5rem] font-bold text-indigo-700 dark:text-cyan-200">{t(gameStatus)}</p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-[20px]">
-          <div className='flex flex-col justify-center items-center'>
-            <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
-            <p className="text-2xl font-bold text-black dark:text-white">{player1} - {player1Score}</p> 
-          </div>
-          <Board gameBoard={gameBoard} playMove={playMove} />
-          <div className='flex flex-col justify-center items-center'>
-            <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
-            <p className="text-2xl font-bold text-black dark:text-white">{player2} - {player2Score}</p>        
-          </div>
-        </div>
-        <div>
-          {gameOver ? <PlayAgain onReturn={onReturn} onPlayAgain={playAgain} /> : <Return onReturn={onReturn} />}
-        </div>
+    <div className="flex flex-col gap-3 h-full w-full
+                    items-center
+                    ">
+      <div className="flex justify-between align-center">
+        <p className="text-xl font-bold text-indigo-500 dark:text-sky-300">{t(gameStatus)}</p>
+      </div>
+      <Board gameBoard={gameBoard} playMove={playMove} />
+      <div className="grid">
+        {gameOver ? <PlayAgain onReturn={onReturn} onPlayAgain={playAgain} /> : <Controls onReturn={onReturn} player1={player1} player2={player2} player1Score={player1Score} player2Score={player2Score} t={t} />}
       </div>
     </div>
   );
 });
+
+interface ControlsProps {
+  onReturn: () => void;
+  player1: string;
+  player2: string;
+  player1Score: number;
+  player2Score: number;
+  t: (key: string, args?: any) => string;
+
+}
+
+const Controls = ({ onReturn, player1, player2, player1Score, player2Score, t }: ControlsProps) => {
+  return (
+    <div className="grid grid-cols-2
+                    md:flex md:flex-row md:gap-5
+                    ">
+      <div className='flex flex-col justify-center items-center order-1 md:order-1 px-5'>
+        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
+        <p className="text-2xl font-bold text-black dark:text-white">{player1} - {player1Score}</p> 
+      </div>
+      <div className='flex flex-col justify-center items-center order-2 md:order-3 px-5'>
+        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
+        <p className="text-2xl font-bold text-black dark:text-white whitespace-nowrap">{player2} - {player2Score}</p>        
+      </div>
+      <Return onReturn={onReturn} />
+    </div>
+  );
+}
+
 
 export default GameScreen;

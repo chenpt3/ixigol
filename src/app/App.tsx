@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Header from './compos/Header';
 import StartScreen from './compos/StartScreen';
 import PlayersSettingsScreen from './compos/PlayersSettingsScreen';
@@ -21,7 +21,6 @@ export default function App() {
   }, [isDark]);
   
   const handlePlayerClick = useCallback((): void => {
-
     setScreen('player');
   }, []);
 
@@ -58,9 +57,15 @@ export default function App() {
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      <div className="md:min-h-3/4 md:w-11/12 md:h-5/6 bg-blue-500 dark:bg-indigo-500 dark:bg-opacity-30 bg-opacity-30 md:gap-5 md:flex md:flex-col text-black dark:text-white md:rounded-2xl p-5 shadow-dark-glow dark:shadow-white-glow w-full h-full">
+      <div className="flex flex-col
+                      w-[100vw] h-[100vh] p-2 sm:p-5
+                      md:w-11/12 md:h-5/6 md:rounded-2xl
+                      bg-sky-300 md:bg-opacity-10 bg-opacity-0 md:shadow-dark-glow text-black
+                      dark:bg-indigo-500 dark:text-white md:dark:bg-opacity-10 md:dark:shadow-white-glow dark:bg-opacity-0
+                      transition-colors duration-500 ease-in-out
+                      ">
         <Header />
-        <div className="h-full">
+        <div className="w-full h-full">
           {screen === 'start' && <StartScreen onPlayerClick={handlePlayerClick} onBotClick={handleBotClick} />}
           {screen === 'player' && <PlayersSettingsScreen onPlayerPlay={onPlayerPlay} onReturn={onReturn} />}
           {screen === 'bot' && <BotSettingsScreen onBotPlay={onBotPlay} onReturn={onReturn} />}
