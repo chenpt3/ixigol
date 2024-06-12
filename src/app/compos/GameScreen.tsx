@@ -141,7 +141,7 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
                     items-center
                     ">
       <div className="flex justify-between align-center">
-        <p className="text-xl font-bold text-indigo-500 dark:text-sky-300">{t(gameStatus)}</p>
+        <p className="text-2xl font-bold text-sky-950 dark:text-sky-300 text-shadow-black dark:text-shadow-white">{t(gameStatus)}</p>
       </div>
       <Board gameBoard={gameBoard} playMove={playMove} />
       <div className="grid">
@@ -167,12 +167,12 @@ const Controls = ({ onReturn, player1, player2, player1Score, player2Score, t }:
                     md:flex md:flex-row md:gap-5
                     ">
       <div className='flex flex-col justify-center items-center order-1 md:order-1 px-5'>
-        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
-        <p className="text-2xl font-bold text-black dark:text-white">{player1} - {player1Score}</p> 
+        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200 text-shadow-black dark:text-shadow-white">{t('score')}</p>
+        <p className="text-2xl font-bold text-black dark:text-white text-shadow text-shadow-black dark:text-shadow-white">{player1} - {player1Score}</p> 
       </div>
       <div className='flex flex-col justify-center items-center order-2 md:order-3 px-5'>
-        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200">{t('score')}</p>
-        <p className="text-2xl font-bold text-black dark:text-white whitespace-nowrap">{player2} - {player2Score}</p>        
+        <p className="text-[1.3rem] font-semibold text-rose-950 dark:text-amber-200 text-shadow-white dark:text-shadow-black">{t('score')}</p>
+        <p className="text-2xl font-bold text-black dark:text-white text-shadow text-shadow-black dark:text-shadow-white">{player2} - {player2Score}</p>        
       </div>
       <Return onReturn={onReturn} />
     </div>

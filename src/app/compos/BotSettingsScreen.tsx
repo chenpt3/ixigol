@@ -47,8 +47,8 @@ interface BotSettingsScreenProps {
           </select>
         </div>
         <div className="flex gap-4">
-          <button onClick={handlePlayClick} className="px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerals-700 transition-all duration-500 ease-in-out shadow-dark-glow dark:shadow-white-glow w-[100px]">{t('Play')}</button>
-          <button onClick={handleReturnClick} className="px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700 transition-all duration-500 ease-in-out shadow-dark-glow dark:shadow-white-glow w-[100px]">{t('Return')}</button>
+          <button onClick={handlePlayClick} className="font-bold px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-700 transition-all duration-500 ease-in-out shadow-dark-glow dark:shadow-white-glow w-[100px]">{t('Play')}</button>
+          <button onClick={handleReturnClick} className="font-bold px-4 py-2 bg-slate-500 text-white rounded hover:bg-slate-700 transition-all duration-500 ease-in-out shadow-dark-glow dark:shadow-white-glow w-[100px]">{t('Return')}</button>
         </div>
       </div>
     );
