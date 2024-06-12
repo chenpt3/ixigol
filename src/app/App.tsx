@@ -58,7 +58,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
       <div className="flex flex-col
-                      w-[100vw] h-[100vh] p-2 sm:p-5
+                      w-[100vw] h-[100svh] p-2 sm:p-5
                       md:w-11/12 md:h-5/6 md:rounded-2xl
                       bg-sky-300 md:bg-opacity-10 bg-opacity-0 md:shadow-dark-glow text-black
                       dark:bg-indigo-500 dark:text-white md:dark:bg-opacity-10 md:dark:shadow-white-glow dark:bg-opacity-0

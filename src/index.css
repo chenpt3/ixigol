@@ -18,7 +18,7 @@ html.dark {
 }
 
 body {
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
