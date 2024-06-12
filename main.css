@@ -530,8 +530,8 @@ video {
 .h-10 {
   height: 2.5rem;
 }
-.h-\[100vh\] {
-  height: 100vh;
+.h-\[100svh\] {
+  height: 100svh;
 }
 .h-\[60px\] {
   height: 60px;
@@ -738,7 +738,7 @@ html.dark {
 }
 
 body {
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
