@@ -4,6 +4,7 @@ import SoundContext from "../hooks/soundContext";
 import Board from "./gameComps/board";
 import Controls from "./gameComps/controls";
 import PlayAgain from "./gameComps/playAgain";
+import useAppSound from "../hooks/useAppSound";
 
 interface GameScreenProps {
   onReturn: () => void;
@@ -29,6 +30,7 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
   ];
   const [gameBoard, setGameBoard] = useState<string[][]>(initializeGameBoard);
   const { play } = React.useContext(SoundContext);
+  const { playX, playO } = useAppSound();
 
   const playAgain = () => {
     setGameBoard(initializeGameBoard);
@@ -100,7 +102,11 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
       const nextPlayer = activePlayer === player1 ? player2 : player1;
 
       if (didMount) {
-        play();
+        if (activePlayer === player1) {
+          playX();
+        } else {
+          playO();
+        }
       }
       
       const winnerMark = checkWinner(newGameBoard);
