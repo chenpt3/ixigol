@@ -41,7 +41,7 @@ interface PlayersSettingsScreenProps {
   
     return (
       <div className="flex flex-col gap-5 h-full
-                      sm:justify-center items-center
+                      md:justify-center mt-[50px] sm:mt-[100px] md:mt-[0] items-center
                       ">
         <div className="flex flex-col gap-5">
           <label htmlFor="player1" className="text-lg font-bold">
