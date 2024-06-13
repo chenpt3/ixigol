@@ -27,7 +27,7 @@ interface PlayersSettingsScreenProps {
   
     const handleReturnClick = useCallback((): void => {
       onReturn();
-    }, []);
+    }, [onReturn]);
   
     return (
       <div className="flex flex-col gap-5 h-full

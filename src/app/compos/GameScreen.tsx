@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import { Board, Return, PlayAgain } from './GameScreenCompos';
+import SoundContext from "../soundContext";
 
 interface GameScreenProps {
   onReturn: () => void;
   settings: string[];
+  didMount: boolean;
 }
 
-const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, settings }: GameScreenProps) {
+const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, settings, didMount }: GameScreenProps) {
   const { t } = useTranslation();
-  const isRtl = document.body.style.direction;
   const player1 = settings[0];
   const player2 = settings[1];
   const diff = settings[2];
@@ -25,6 +26,7 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
     ['', '', '']
   ];
   const [gameBoard, setGameBoard] = useState<string[][]>(initializeGameBoard);
+  const { play } = React.useContext(SoundContext);
 
   const playAgain = () => {
     setGameBoard(initializeGameBoard);
@@ -36,6 +38,10 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
     } else {
       setActivePlayer(player1);
       setGameStatus(`It's ${player1}'s turn!`);
+    }
+
+    if (didMount) {
+      play();
     }
   
     for (let i = 1; i <= 9; i++) {
@@ -90,6 +96,10 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
       setGameBoard(newGameBoard);
       drawMark(newGameBoard[row][col]);
       const nextPlayer = activePlayer === player1 ? player2 : player1;
+
+      if (didMount) {
+        play();
+      }
       
       const winnerMark = checkWinner(newGameBoard);
       let isGameOver = false;
