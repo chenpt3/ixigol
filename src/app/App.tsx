@@ -24,7 +24,7 @@ enum PlayerNames {
 
 const App: FC = () => {
   const [screen, setScreen] = useState<Screen>(Screen.Start);
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(() => localStorage.getItem('theme') === 'dark');
   const [loading, setLoading] = useState<boolean>(true);
   const [player1Name, setPlayer1Name] = useState<string>(PlayerNames.Player1);
   const [player2Name, setPlayer2Name] = useState<string>(PlayerNames.Player2);
@@ -38,12 +38,24 @@ const App: FC = () => {
   }, []);
 
   const toggleTheme = useCallback((): void => {
-    setIsDark(!isDark);
+    setIsDark( (isDark) => {
+      const newDark = !isDark;
+      localStorage.setItem('theme', newDark ? 'dark' : 'light');
+      return newDark;
+    });
     document.querySelector("html")?.classList.toggle("dark");
     if (didMount) {
       play();
     }
-  }, [isDark, play, didMount]);
+  }, [play, didMount]);
+
+  useEffect(() => {
+    if (isDark) {
+      document.querySelector("html")?.classList.add("dark");
+    } else {
+      document.querySelector("html")?.classList.remove("dark");
+    }
+  }, [isDark]);
   
   const handlePlayerClick = useCallback((): void => {
     setScreen(Screen.Player);
@@ -87,6 +99,8 @@ const App: FC = () => {
 
   useEffect(() => {
     i18n.init().then(() => {
+      const lang = localStorage.getItem('lang') || 'en';
+      i18n.changeLanguage(lang);
       setLoading(false);
     });
   }, []);

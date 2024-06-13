@@ -1,4 +1,4 @@
-import { FC, memo, useState, useCallback, useContext } from 'react';
+import { FC, memo, useState, useCallback, useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import SoundContext from '../../hooks/soundContext';
 import flagIl from '../../assets/images/flag-il.svg';
@@ -9,20 +9,32 @@ interface LanguageToggleProps {
 }
 
 const LanguageToggle: FC<LanguageToggleProps> = memo(({ didMount }) => {
-    const [isHebrew, setIsHebrew] = useState<boolean>(false);
     const { i18n } = useTranslation();
     const { play } = useContext(SoundContext);
 
+    const [isHebrew, setIsHebrew] = useState<boolean>(() => {
+        const lang = localStorage.getItem('lang');
+        return lang === 'he';
+    });
+
+    useEffect(() => {
+        const lang = isHebrew ? 'he' : 'en';
+        if (lang === 'he') {
+            document.body.style.direction = 'rtl'
+        } else {
+            document.body.style.direction = 'ltr';
+        }
+        i18n.changeLanguage(lang);
+    }, [isHebrew, i18n]);
+
     const click = useCallback((): void => {
-    const newLanguage = isHebrew ? 'en' : 'he';
-    setIsHebrew(!isHebrew);
-    if (newLanguage === 'he') document.body.style.direction = 'rtl';
-    if (newLanguage === 'en') document.body.style.direction = 'ltr';
-    i18n.changeLanguage(newLanguage);
-    if (didMount) {
-        play();
-    }
-    }, [isHebrew, i18n, play, didMount]);
+        const newLanguage = isHebrew ? 'en' : 'he';
+        setIsHebrew(!isHebrew);
+        localStorage.setItem('lang', newLanguage);
+        if (didMount) {
+            play();
+        }
+    }, [isHebrew, play, didMount]);
 
     return (
         <img src={isHebrew ? flagIl : flagUs} alt="Language" onClick={click} className="w-10 h-10" />

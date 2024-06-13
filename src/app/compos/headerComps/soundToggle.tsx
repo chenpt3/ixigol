@@ -20,6 +20,7 @@ const SoundToggle: FC<SoundToggleProps> = memo(({ didMount }) => {
     const click = useCallback((): void => {
       toggleMute();
       setHasClicked(true);
+      localStorage.setItem('mute', isMuted ? 'false' : 'true');
     }, [toggleMute]);
   
     return (

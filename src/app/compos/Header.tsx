@@ -4,7 +4,6 @@ import LanguageToggle from "./headerComps/langToggle";
 import ThemeToggle from "./headerComps/themeToggle";
 import SoundToggle from "./headerComps/soundToggle";
 
-
 interface HeaderProps {
   didMount: boolean;
 }
