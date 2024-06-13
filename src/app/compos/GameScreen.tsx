@@ -150,7 +150,7 @@ const GameScreen = React.memo(function GameScreen({ onReturn: onReturnProp, sett
 
   return (
     <div className="flex flex-col gap-3 h-full w-full
-                    items-center
+                    items-center pt-[20px] sm:pt-[0]
                     ">
       <div className="flex justify-between align-center">
         <p className="text-2xl font-bold text-sky-950 dark:text-sky-300 text-shadow-black dark:text-shadow-white">{t(gameStatus)}</p>

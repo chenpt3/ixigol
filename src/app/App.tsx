@@ -35,6 +35,7 @@ const App: FC = () => {
 
   useEffect(() => {
     setDidMount(true);
+    window.scrollTo(0, 0);
   }, []);
 
   const toggleTheme = useCallback((): void => {

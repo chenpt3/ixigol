@@ -28,20 +28,30 @@ interface PlayersSettingsScreenProps {
     const handleReturnClick = useCallback((): void => {
       onReturn();
     }, [onReturn]);
+
+    const handleFocus = useCallback(() => {
+      document.body.style.height = `${window.innerHeight}px`;
+      document.body.style.position = 'fixed';
+    }, []);
+    
+    const handleBlur = useCallback(() => {
+      document.body.style.height = 'auto';
+      document.body.style.position = 'static';
+    }, []);
   
     return (
       <div className="flex flex-col gap-5 h-full
-                      justify-center items-center
+                      sm:justify-center items-center
                       ">
         <div className="flex flex-col gap-5">
           <label htmlFor="player1" className="text-lg font-bold">
             {t('Player 1 Name:')}
           </label>
-          <input id="player1" type="text" placeholder={t('Player 1')} value={player1} onChange={handlePlayer1Change} className="px-4 py-2 border rounded-md text-black" />
+          <input onBlur={handleBlur} onFocus={handleFocus} id="player1" type="text" placeholder={t('Player 1')} value={player1} onChange={handlePlayer1Change} className="px-4 py-2 border rounded-md text-black" />
           <label htmlFor="player2" className="text-lg font-bold">
           {t('Player 2 Name:')}
           </label>
-          <input id="player2" type="text" placeholder={t('Player 2')} value={player2} onChange={handlePlayer2Change} className="px-4 py-2 border rounded-md text-black" />
+          <input onBlur={handleBlur} onFocus={handleFocus} id="player2" type="text" placeholder={t('Player 2')} value={player2} onChange={handlePlayer2Change} className="px-4 py-2 border rounded-md text-black" />
         </div>
         <div className="flex gap-4">
           <button onClick={handlePlayClick} className="font-bold px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-700 transition-all duration-500 ease-in-out shadow-dark-glow dark:shadow-white-glow w-[100px]">{t('Play')}</button>

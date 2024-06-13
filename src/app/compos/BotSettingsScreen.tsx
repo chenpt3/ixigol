@@ -26,16 +26,26 @@ interface BotSettingsScreenProps {
     const handleReturnClick = useCallback((): void => {
       onReturn();
     }, []);
+
+    const handleFocus = useCallback(() => {
+      document.body.style.height = `${window.innerHeight}px`;
+      document.body.style.position = 'fixed';
+    }, []);
+    
+    const handleBlur = useCallback(() => {
+      document.body.style.height = 'auto';
+      document.body.style.position = 'static';
+    }, []);
   
     return (
       <div className="flex flex-col gap-5 h-full
-                      justify-center items-center
+                      sm:justify-center items-center
                       ">
         <div className="flex flex-col gap-5">
           <label htmlFor="player1" className="text-lg font-bold">
             {t('Player 1 Name:')}
           </label>
-          <input id="player1" type="text" placeholder={t("Player 1")} value={player1} onChange={handlePlayer1Change} className="px-4 py-2 border rounded-md text-black" />
+          <input onBlur={handleBlur} onFocus={handleFocus} id="player1" type="text" placeholder={t("Player 1")} value={player1} onChange={handlePlayer1Change} className="px-4 py-2 border rounded-md text-black" />
           <label htmlFor="bot" className="text-lg font-bold">
             {t('Choose Bot Difficulty:')}
           </label>
