@@ -9,7 +9,7 @@ function useAppSound() {
   const [soundEnabled, setSoundEnabled] = useState<boolean>(() => localStorage.getItem('mute') !== 'true');
   const [play] = useSound(click, { volume: 0.3, soundEnabled, playbackRate: 1.3});
   const [playX] = useSound(x, { volume: 0.6, soundEnabled, playbackRate: 2.5});
-  const [playO] = useSound(o, { volume: 0.6, soundEnabled, playbackRate: 2.5 });
+  const [playO] = useSound(o, { volume: 0.6, soundEnabled, playbackRate: 3 });
 
   const toggleMute = useCallback(() => {
     const newMuteState = !isMuted;
