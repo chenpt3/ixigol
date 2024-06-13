@@ -10,11 +10,11 @@
 }
 
 html {
-  --img-url: url("./assets/bg-light.png");
+  --img-url: url("./app/assets/images/bg-light.png");
 }
 
 html.dark {
-  --img-url: url("./assets/bg-dark.png");
+  --img-url: url("./app/assets/images/bg-dark.png");
 }
 
 body {

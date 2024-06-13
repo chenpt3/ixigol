@@ -9,6 +9,6 @@
     "module": "commonjs",
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx", "typings.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts", "tests/**/*.tsx", "typings.d.ts", "jest.config.js"],
   "exclude": ["node_modules"]
 }
