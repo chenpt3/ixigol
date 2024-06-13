@@ -530,9 +530,6 @@ video {
 .h-10 {
   height: 2.5rem;
 }
-.h-\[100svh\] {
-  height: 100svh;
-}
 .h-\[60px\] {
   height: 60px;
 }
@@ -547,9 +544,6 @@ video {
 }
 .w-\[100px\] {
   width: 100px;
-}
-.w-\[100vw\] {
-  width: 100vw;
 }
 .w-\[200px\] {
   width: 200px;
